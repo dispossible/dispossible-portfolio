@@ -1,0 +1,13 @@
+{
+    "extends": ["stylelint-config-standard"],
+    "rules": {
+        "custom-property-empty-line-before": null,
+        "selector-class-pattern": [
+            "[a-zA-Z](-[a-z][A-Z])?(_[a-z][A-Z])?",
+            {
+                "resolveNestedSelectors": true
+            }
+        ],
+        "selector-max-id": 0
+    }
+}
