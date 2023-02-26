@@ -2,3 +2,10 @@
 
 /* @import url("reset.css"); */
 @import url("vars.css");
+
+body {
+    color: var(--color-text);
+    font-family: var(--font-mono);
+    font-weight: 200;
+    background: black;
+}

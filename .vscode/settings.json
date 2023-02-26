@@ -1,0 +1,10 @@
+{
+    "cSpell.words": ["Dispossible"],
+    "files.associations": {
+        "*.css": "css",
+        "css": "css"
+    },
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+    }
+}
