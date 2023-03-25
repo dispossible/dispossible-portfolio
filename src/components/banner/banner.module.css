@@ -5,7 +5,7 @@
     background: var(--color-bg-dark);
     background-image: linear-gradient(
             to bottom,
-            transparent calc(var(--water-level) - 1.5%),
+            transparent calc(var(--water-level) - 12px),
             var(--color-bg-dark) var(--water-level),
             hsl(90deg 15% 6%)
         ),
@@ -115,4 +115,15 @@
     100% {
         transform: translateY(0.8%);
     }
+}
+
+.fog {
+    position: absolute;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    mix-blend-mode: soft-light;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.6;
 }
