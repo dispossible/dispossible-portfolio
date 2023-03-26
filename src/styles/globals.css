@@ -4,8 +4,20 @@
 @import url("vars.css");
 
 body {
+    --scroll-position: 0px;
+
     color: var(--color-text);
     font-family: var(--font-mono);
-    font-weight: 200;
-    background: black;
+    font-weight: 400;
+    background: var(--color-bg, black);
+    background-image: radial-gradient(circle at 1px 1px, hsla(0deg 0% 100% / 20%) 1px, hsla(0deg 0% 100% / 0%) 1px);
+    background-size: 100px 100px;
+    background-attachment: fixed;
+    overflow-x: hidden;
+
+    /* Move the background at 10% speed of the scroll with a 5px offset jus to dis-align the top pixel */
+    background-position: center calc((var(--scroll-position) * -0.1) - 5px);
+
+    /* Temp - Remove this */
+    min-height: 300vh;
 }

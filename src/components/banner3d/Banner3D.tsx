@@ -1,16 +1,16 @@
 import { range } from "@/lib/range";
 import { useAnimationFrame } from "@/lib/useAnimationFrame";
 import { SVGProps, useState } from "react";
-import style from "./banner.module.css";
+import style from "./banner3d.module.css";
 
 const TAU = Math.PI * 2;
 const FPS_30 = 1000 / 30;
 const FPS_5 = 1000 / 5;
 const FPS_1 = 1000 / 1;
 
-interface BannerProps {}
+interface Banner3DProps {}
 
-export default function Banner(props: BannerProps) {
+export default function Banner3D(props: Banner3DProps) {
     const [stopAnimationFog, setStopAnimationFog] = useState(false);
     const [stopAnimationRipple, setStopAnimationRipple] = useState(false);
     const [stopAnimationMotion, setStopAnimationMotion] = useState(false);

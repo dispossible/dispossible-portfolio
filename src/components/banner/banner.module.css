@@ -1,129 +1,120 @@
-.banner {
-    --top-space: 40%;
-    --water-level: 74%;
-
-    background: var(--color-bg-dark);
-    background-image: linear-gradient(
-            to bottom,
-            transparent calc(var(--water-level) - 12px),
-            var(--color-bg-dark) var(--water-level),
-            hsl(90deg 15% 6%)
-        ),
-        radial-gradient(circle at center -20vh, var(--color-bg-light), transparent);
-    min-height: 600px;
-    height: 100lvh;
-    max-height: 1000px;
-    position: relative;
-    isolation: isolate;
-}
-
-.text {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    height: var(--top-space);
-    translate: -50% 0;
-    text-align: center;
-    line-height: 1.4;
+.root {
+    min-height: 100vh;
+    min-height: 100lvh;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    line-height: 1;
+    position: relative;
 }
 
-.title {
-    margin: 0;
-    font-weight: 200;
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    animation: title-in 2s ease 1;
+.root::before,
+.root::after {
+    content: "";
+    position: absolute;
+    width: 100vw;
+    aspect-ratio: 1 / 1;
+    border-radius: 100%;
+    border: 1px solid hsla(0deg 0% 100% / 10%);
+    border-color: transparent hsla(0deg 0% 100% / 10%);
+    bottom: calc(20% - (var(--scroll-position) * 0.6));
+    z-index: -2;
+    right: 50%;
+    animation: spin 60s linear infinite;
+    rotate: -45deg;
 }
 
-.subTitle {
-    font-weight: 200;
-    opacity: 0.7;
-    animation: subtitle-in 2s ease 1 0.5s;
+.root::after {
+    right: auto;
+    left: 30%;
+    bottom: auto;
+    top: calc(50% + (var(--scroll-position) * 0.6));
+    rotate: -20deg;
+    animation-duration: 85s;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+.small {
+    font-size: 0.8rem;
+    animation: small-intro ease-out 300ms 1 200ms;
     animation-fill-mode: both;
 }
 
-.squareWrap {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    overflow: hidden;
-}
-
-.square {
-    position: absolute;
-    inset: 0;
-    left: 50%;
-    translate: -50% 0;
-    min-width: 1000px;
-    width: 100%;
-    height: 100%;
-}
-
-.squareLine {
-    animation: square-line-in 4s ease 1 1.2s;
-    animation-fill-mode: both;
-}
-
-@keyframes square-line-in {
+@keyframes small-intro {
     0% {
-        stroke-dashoffset: 158;
+        opacity: 0;
+        transform: translateY(-1em);
     }
 
     100% {
-        stroke-dashoffset: 0;
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-@keyframes title-in {
+.title {
+    margin: 12px 0 0;
+}
+
+.letter {
+    display: inline-block;
+    color: transparent;
+    font-size: 0;
+    padding: 0 4px;
+}
+
+.letterImg {
+    height: 3rem;
+}
+
+.bracket {
+    height: 30vh;
+    height: 30lvh;
+    position: absolute;
+    top: calc(50% + (var(--scroll-position) * 0.3));
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-fill-mode: both;
+    animation-duration: 1s;
+    animation-timing-function: cubic-bezier(0.11, 1.47, 0.56, 0.99);
+    animation-delay: 750ms;
+    z-index: -1;
+}
+
+.bracket:nth-of-type(1) {
+    animation-name: bracket-intro-1;
+}
+
+.bracket:nth-of-type(2) {
+    animation-name: bracket-intro-2;
+}
+
+@keyframes bracket-intro-1 {
     0% {
-        translate: 0 50%;
+        transform: translate(calc(-50% - 24em), -50%);
         opacity: 0;
     }
 
     100% {
-        translate: 0 0;
+        transform: translate(calc(-50% - 22em), -50%);
         opacity: 1;
     }
 }
 
-@keyframes subtitle-in {
+@keyframes bracket-intro-2 {
     0% {
-        translate: 0 50%;
+        transform: translate(calc(-50% + 24em), -50%);
         opacity: 0;
     }
 
     100% {
-        translate: 0 0;
-        opacity: 0.7;
+        transform: translate(calc(-50% + 22em), -50%);
+        opacity: 1;
     }
-}
-
-.bob {
-    animation: bob 10s ease infinite;
-    animation-direction: alternate;
-}
-
-@keyframes bob {
-    0% {
-        transform: translateY(-0.8%);
-    }
-
-    100% {
-        transform: translateY(0.8%);
-    }
-}
-
-.fog {
-    position: absolute;
-    height: 100%;
-    aspect-ratio: 1 / 1;
-    mix-blend-mode: soft-light;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0.6;
 }
