@@ -1,36 +1,60 @@
 import Link from "next/link";
 import styles from "./navigation.module.css";
 
-export default function Navigation() {
+interface NavigationProps {
+    isHomePage: boolean;
+}
+
+export default function Navigation({ isHomePage }: NavigationProps) {
     return (
         <nav className={styles.root}>
             <ol className={styles.list}>
                 <li>
-                    <Link className={styles.link} href={"/"}>
-                        Top
-                    </Link>
+                    <AnchorLink isHomePage={isHomePage} anchor="top">
+                        {isHomePage ? "Top" : "Home"}
+                    </AnchorLink>
                 </li>
                 <li>
-                    <Link className={styles.link} href={"/#projects"}>
+                    <AnchorLink isHomePage={isHomePage} anchor="projects">
                         Projects
-                    </Link>
+                    </AnchorLink>
                 </li>
                 <li>
-                    <Link className={styles.link} href={"/#about"}>
+                    <AnchorLink isHomePage={isHomePage} anchor={"about"}>
                         About
-                    </Link>
+                    </AnchorLink>
                 </li>
                 <li>
-                    <Link className={styles.link} href={"/#photography"}>
+                    <AnchorLink isHomePage={isHomePage} anchor={"photography"}>
                         Photography
-                    </Link>
+                    </AnchorLink>
                 </li>
                 <li>
-                    <Link className={styles.link} href={"/#contact"}>
+                    <AnchorLink isHomePage={isHomePage} anchor={"contact"}>
                         Contact
-                    </Link>
+                    </AnchorLink>
                 </li>
             </ol>
         </nav>
+    );
+}
+
+interface AnchorLinkProps extends React.PropsWithChildren {
+    isHomePage: boolean;
+    anchor: string;
+}
+
+function AnchorLink({ children, anchor, isHomePage }: AnchorLinkProps) {
+    if (isHomePage) {
+        return (
+            <a className={styles.link} href={`#${anchor}`}>
+                {children}
+            </a>
+        );
+    }
+    return (
+        <Link className={styles.link} href={`/#${anchor}`}>
+            {children}
+        </Link>
     );
 }

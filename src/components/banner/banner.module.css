@@ -77,7 +77,7 @@
     height: 30vh;
     height: 30lvh;
     position: absolute;
-    top: calc(50% + (var(--scroll-position) * 0.3));
+    top: calc(50% + (var(--scroll-position) * 0.15));
     left: 50%;
     transform: translate(-50%, -50%);
     animation-fill-mode: both;

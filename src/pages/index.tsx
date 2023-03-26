@@ -1,8 +1,23 @@
 import Banner from "@/components/Banner";
 import Navigation from "@/components/Navigation";
+import { ProjectGallery } from "@/components/ProjectGallery";
+import { getProjectsData, ProjectPost } from "@/lib/projects";
 import Head from "next/head";
 
-export default function Home() {
+export async function getStaticProps() {
+    const projects = await getProjectsData();
+    return {
+        props: {
+            projects,
+        },
+    };
+}
+
+interface HomeProps {
+    projects: ProjectPost[];
+}
+
+export default function Home({ projects }: HomeProps) {
     return (
         <>
             <Head>
@@ -12,8 +27,9 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main>
-                <Navigation />
+                <Navigation isHomePage />
                 <Banner />
+                <ProjectGallery projects={projects} />
             </main>
         </>
     );

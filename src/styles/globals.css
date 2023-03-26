@@ -3,6 +3,10 @@
 /* @import url("reset.css"); */
 @import url("vars.css");
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     --scroll-position: 0px;
 
@@ -14,10 +18,20 @@ body {
     background-size: 100px 100px;
     background-attachment: fixed;
     overflow-x: hidden;
+    font-size: 16px;
 
     /* Move the background at 10% speed of the scroll with a 5px offset jus to dis-align the top pixel */
     background-position: center calc((var(--scroll-position) * -0.1) - 5px);
 
     /* Temp - Remove this */
     min-height: 300vh;
+}
+
+[id] {
+    scroll-margin-top: 5em;
+}
+
+p {
+    font-size: 0.8em;
+    line-height: 1.4;
 }

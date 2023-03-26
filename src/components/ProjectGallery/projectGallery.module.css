@@ -1,0 +1,29 @@
+.root {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap: 24px;
+
+    @media (min-width: 800px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.intro {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 16px;
+    max-width: 600px;
+    margin-left: auto;
+
+    & > * {
+        margin: 0;
+    }
+}
+
+.card {
+    grid-row: span 2;
+}
