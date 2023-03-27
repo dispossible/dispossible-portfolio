@@ -1,3 +1,4 @@
+import AboutMe from "@/components/AboutMe";
 import Banner from "@/components/Banner";
 import Navigation from "@/components/Navigation";
 import { ProjectGallery } from "@/components/ProjectGallery";
@@ -30,6 +31,7 @@ export default function Home({ projects }: HomeProps) {
                 <Navigation isHomePage />
                 <Banner />
                 <ProjectGallery projects={projects} />
+                <AboutMe />
             </main>
         </>
     );
