@@ -24,7 +24,7 @@ body {
     background-position: center calc((var(--scroll-position) * -0.1) - 5px);
 
     /* Temp - Remove this */
-    min-height: 300vh;
+    min-height: 600vh;
 }
 
 [id] {

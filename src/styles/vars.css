@@ -6,4 +6,6 @@
 
     --color-values-bg: 90deg 9% 14%;
     --color-bg: hsl(var(--color-values-bg));
+
+    --img-radius: 12px;
 }

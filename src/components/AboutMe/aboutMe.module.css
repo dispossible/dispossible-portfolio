@@ -3,6 +3,7 @@
     min-height: 100lvh;
     display: grid;
     place-items: center;
+    padding: 128px 0;
 }
 
 .layout {

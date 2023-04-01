@@ -1,21 +1,23 @@
 import AboutMe from "@/components/AboutMe";
 import Banner from "@/components/Banner";
 import Navigation from "@/components/Navigation";
+import PhotoGallery from "@/components/PhotoGallery";
 import { ProjectGallery } from "@/components/ProjectGallery";
+import { getPhotosData } from "@/lib/photos";
 import { getProjectsData } from "@/lib/projects";
 import { InferGetStaticPropsType } from "next";
 import Head from "next/head";
 
 export async function getStaticProps() {
-    const projects = await getProjectsData();
     return {
         props: {
-            projects,
+            projects: await getProjectsData(),
+            photos: await getPhotosData(),
         },
     };
 }
 
-export default function Home({ projects }: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Home({ projects, photos }: InferGetStaticPropsType<typeof getStaticProps>) {
     return (
         <>
             <Head>
@@ -29,6 +31,7 @@ export default function Home({ projects }: InferGetStaticPropsType<typeof getSta
                 <Banner />
                 <ProjectGallery projects={projects} />
                 <AboutMe />
+                <PhotoGallery photos={photos} />
             </main>
         </>
     );

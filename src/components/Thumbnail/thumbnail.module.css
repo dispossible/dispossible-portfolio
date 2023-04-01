@@ -11,7 +11,7 @@
     position: absolute;
     inset: 0;
     background: black;
-    border-radius: 12px;
+    border-radius: var(--img-radius);
     display: grid;
     place-items: center;
     color: inherit;
