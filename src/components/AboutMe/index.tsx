@@ -30,7 +30,12 @@ export default function AboutMe() {
                         <div className={styles.ring}>
                             <GlowFilter id="aboutGlow" />
                         </div>
-                        <Image className={styles.img} src={portrait} alt="Photo TODO" width={300} />
+                        <Image
+                            className={styles.img}
+                            src={portrait}
+                            alt="Headshot of a man looking off to the left, lit from behind"
+                            width={300}
+                        />
                     </div>
                 </div>
                 <div className={clsx(styles.block, styles.block2)}>

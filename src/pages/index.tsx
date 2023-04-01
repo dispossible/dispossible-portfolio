@@ -2,7 +2,8 @@ import AboutMe from "@/components/AboutMe";
 import Banner from "@/components/Banner";
 import Navigation from "@/components/Navigation";
 import { ProjectGallery } from "@/components/ProjectGallery";
-import { getProjectsData, ProjectPost } from "@/lib/projects";
+import { getProjectsData } from "@/lib/projects";
+import { InferGetStaticPropsType } from "next";
 import Head from "next/head";
 
 export async function getStaticProps() {
@@ -14,11 +15,7 @@ export async function getStaticProps() {
     };
 }
 
-interface HomeProps {
-    projects: ProjectPost[];
-}
-
-export default function Home({ projects }: HomeProps) {
+export default function Home({ projects }: InferGetStaticPropsType<typeof getStaticProps>) {
     return (
         <>
             <Head>
