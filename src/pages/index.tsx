@@ -1,5 +1,6 @@
 import AboutMe from "@/components/AboutMe";
 import Banner from "@/components/Banner";
+import Contact from "@/components/Contact";
 import Navigation from "@/components/Navigation";
 import PhotoGallery from "@/components/PhotoGallery";
 import { ProjectGallery } from "@/components/ProjectGallery";
@@ -32,6 +33,7 @@ export default function Home({ projects, photos }: InferGetStaticPropsType<typeo
                 <ProjectGallery projects={projects} />
                 <AboutMe />
                 <PhotoGallery photos={photos} />
+                <Contact />
             </main>
         </>
     );

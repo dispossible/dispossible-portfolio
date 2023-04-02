@@ -18,7 +18,7 @@
     border-radius: 100%;
     border: 1px solid hsla(0deg 0% 100% / 10%);
     border-color: transparent hsla(0deg 0% 100% / 10%);
-    bottom: calc(20% - (var(--scroll-position) * 0.6));
+    bottom: calc(20% - (var(--scroll-position) * 0.4));
     z-index: -2;
     right: 50%;
     animation: spin 60s linear infinite;
@@ -29,7 +29,7 @@
     right: auto;
     left: 30%;
     bottom: auto;
-    top: calc(50% + (var(--scroll-position) * 0.6));
+    top: calc(50% + (var(--scroll-position) * 0.4));
     rotate: -20deg;
     animation-duration: 85s;
 }

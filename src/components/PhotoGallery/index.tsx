@@ -69,7 +69,7 @@ export default function PhotoGallery({ photos }: PhotoGalleryProps) {
                                 return (
                                     <div key={TITLE} className={styles.title}>
                                         <h2>Photography</h2>
-                                        <p>This is a small collection of my favorite photographs that I have taken.</p>
+                                        <p>This is a small collection of my favorite photographs.</p>
                                     </div>
                                 );
                             }
