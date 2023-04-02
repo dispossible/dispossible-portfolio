@@ -1,7 +1,6 @@
 .root {
     display: flex;
     gap: 16px;
-    line-height: 0;
 
     & > * {
         flex-grow: 1;
@@ -14,6 +13,7 @@
     height: auto;
     margin-bottom: 16px;
     border-radius: var(--img-radius);
+    line-height: 0;
 }
 
 .title {
@@ -21,27 +21,35 @@
 }
 
 .column {
-    --translate-speed: 0.1;
-
-    @media (min-width: 800px) {
-        transform: translateY(calc(var(--scroll-position) * var(--translate-speed) * -1));
+    @media (width > 800px) {
+        transform: translateY(calc(var(--scroll-position) * var(--translate-speed, 0) * -1));
     }
 }
 
-.column:nth-child(2) {
+.column[data-index="1"] {
+    --translate-speed: 0.1;
+
+    order: 1;
+    margin-top: 0;
+}
+
+.column[data-index="2"] {
     --translate-speed: 0.25;
 
+    order: 2;
     margin-top: 100px;
 }
 
-.column:nth-child(3) {
+.column[data-index="3"] {
     --translate-speed: 0.35;
 
+    order: 3;
     margin-top: 40px;
 }
 
-.column:nth-child(4) {
+.column[data-index="4"] {
     --translate-speed: 0.2;
 
+    order: 4;
     margin-top: 260px;
 }

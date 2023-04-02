@@ -1,7 +1,6 @@
 import AboutMe from "@/components/AboutMe";
 import Banner from "@/components/Banner";
 import Contact from "@/components/Contact";
-import Navigation from "@/components/Navigation";
 import PhotoGallery from "@/components/PhotoGallery";
 import { ProjectGallery } from "@/components/ProjectGallery";
 import { getPhotosData } from "@/lib/photos";
@@ -28,7 +27,6 @@ export default function Home({ projects, photos }: InferGetStaticPropsType<typeo
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main>
-                <Navigation isHomePage />
                 <Banner />
                 <ProjectGallery projects={projects} />
                 <AboutMe />

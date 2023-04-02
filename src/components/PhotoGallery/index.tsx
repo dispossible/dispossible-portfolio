@@ -45,7 +45,11 @@ export default function PhotoGallery({ photos }: PhotoGalleryProps) {
             smallestColumn.height += photo.height;
         });
 
-        return columnData.sort((a, b) => a.index - b.index);
+        return columnData.sort((a, b) => {
+            if (a.photos[0] === TITLE) return -1;
+            if (b.photos[0] === TITLE) return 1;
+            return a.index - b.index;
+        });
     }, [screen.width, photos]);
 
     const $section = useRef<HTMLElement>(null);
@@ -61,15 +65,15 @@ export default function PhotoGallery({ photos }: PhotoGalleryProps) {
 
     return (
         <PageWrapper className={styles.root} id="photography" ref={$section}>
-            {columns.map((column, i) => {
+            {columns.map((column) => {
                 return (
-                    <div key={column.index} className={styles.column}>
+                    <div key={column.index} data-index={column.index + 1} className={styles.column}>
                         {column.photos.map((photo) => {
                             if (photo === TITLE) {
                                 return (
                                     <div key={TITLE} className={styles.title}>
                                         <h2>Photography</h2>
-                                        <p>This is a small collection of my favorite photographs.</p>
+                                        <p>A small collection of my favorite photographs.</p>
                                     </div>
                                 );
                             }

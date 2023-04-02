@@ -1,4 +1,6 @@
+import clsx from "clsx";
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 import styles from "./navigation.module.css";
 
 interface NavigationProps {
@@ -6,9 +8,33 @@ interface NavigationProps {
 }
 
 export default function Navigation({ isHomePage }: NavigationProps) {
+    const [open, setOpen] = useState(false);
+    const $menu = useRef<HTMLOListElement>(null);
+
+    useEffect(() => {
+        const checkMenuSize = () => {
+            if ($menu.current) {
+                const rect = $menu.current.getBoundingClientRect();
+                $menu.current.style.setProperty("--menu-size", rect.height + "px");
+            }
+        };
+
+        checkMenuSize();
+        window.addEventListener("resize", checkMenuSize, { passive: true });
+        return () => window.removeEventListener("resize", checkMenuSize);
+    }, []);
+
     return (
         <nav className={styles.root}>
-            <ol className={styles.list}>
+            <ol
+                ref={$menu}
+                className={clsx(styles.list, {
+                    [styles.listOpen]: open,
+                })}
+                onClick={() => {
+                    setOpen(false);
+                }}
+            >
                 <li>
                     <AnchorLink isHomePage={isHomePage} anchor="top">
                         {isHomePage ? "Top" : "Home"}
@@ -35,6 +61,16 @@ export default function Navigation({ isHomePage }: NavigationProps) {
                     </AnchorLink>
                 </li>
             </ol>
+            <button
+                className={clsx(styles.toggle, {
+                    [styles.toggleOpen]: open,
+                })}
+                onClick={() => {
+                    setOpen((o) => !o);
+                }}
+            >
+                ☰ {!open ? "Menu" : "Close"}
+            </button>
         </nav>
     );
 }
@@ -46,15 +82,7 @@ interface AnchorLinkProps extends React.PropsWithChildren {
 
 function AnchorLink({ children, anchor, isHomePage }: AnchorLinkProps) {
     if (isHomePage) {
-        return (
-            <a className={styles.link} href={`#${anchor}`}>
-                {children}
-            </a>
-        );
+        return <a href={`#${anchor}`}>{children}</a>;
     }
-    return (
-        <Link className={styles.link} href={`/#${anchor}`}>
-            {children}
-        </Link>
-    );
+    return <Link href={`/#${anchor}`}>{children}</Link>;
 }

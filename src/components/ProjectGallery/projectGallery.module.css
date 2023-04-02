@@ -1,11 +1,11 @@
 .root {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
     gap: 24px;
 
-    @media (min-width: 800px) {
-        grid-template-columns: repeat(2, 1fr);
+    @media (width < 800px) {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -26,4 +26,20 @@
 
 .card {
     grid-row: span 2;
+
+    @media (width < 800px) {
+        transform: translateX(10vw);
+
+        & > * {
+            transform-origin: right center;
+        }
+
+        &:nth-child(odd) {
+            transform: translateX(-10vw);
+
+            & > * {
+                transform-origin: left center;
+            }
+        }
+    }
 }

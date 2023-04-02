@@ -8,4 +8,7 @@
     --color-bg: hsl(var(--color-values-bg));
 
     --img-radius: 12px;
+
+    --bracket-multiplier: 0.15;
+    --ring-multiplier: 0.7;
 }
