@@ -1,6 +1,6 @@
 import { DependencyList, useEffect } from "react";
 
-export function useAnimationFrame<T extends object | void = any>(
+export default function useAnimationFrame<T extends object | void = any>(
     callback: (delta: number, store: T) => T,
     dependencies: DependencyList = [],
     store?: T

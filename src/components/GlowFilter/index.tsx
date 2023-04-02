@@ -8,27 +8,8 @@ export default function GlowFilter({ id, size = 2 }: GlowFilterProps) {
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width={0} height={0}>
             <defs>
                 <filter id={id}>
-                    <feMorphology in="SourceGraphic" result="border1" operator="dilate" radius="0.1" />
-                    <feGaussianBlur in="border1" result="glow1" stdDeviation="0.6" />
-
-                    <feMorphology in="SourceGraphic" result="border2" operator="dilate" radius="0.02" />
-                    <feGaussianBlur in="border2" result="glow2" stdDeviation="0.2" />
-
-                    <feBlend in="glow1" in2="glow2" result="glow" mode="screen" />
                     <feColorMatrix
-                        in="glow"
-                        result="glowFade"
-                        type="matrix"
-                        values="0.8 0 0 0 0
-                                0 1 0 0 0
-                                0 0 0.8 0 0
-                                0 0 0 0.6 0"
-                    />
-
-                    <feBlend in="SourceGraphic" in2="glowFade" result="s2" mode="screen" />
-
-                    <feColorMatrix
-                        in="s2"
+                        in="SourceGraphic"
                         result="s2R"
                         type="matrix"
                         values="1 0 0 0 0
@@ -37,7 +18,7 @@ export default function GlowFilter({ id, size = 2 }: GlowFilterProps) {
                                 0 0 0 1 0"
                     />
                     <feColorMatrix
-                        in="s2"
+                        in="SourceGraphic"
                         result="s2G"
                         type="matrix"
                         values="0 0 0 0 0
@@ -46,7 +27,7 @@ export default function GlowFilter({ id, size = 2 }: GlowFilterProps) {
                                 0 0 0 1 0"
                     />
                     <feColorMatrix
-                        in="s2"
+                        in="SourceGraphic"
                         result="s2B"
                         type="matrix"
                         values="0 0 0 0 0

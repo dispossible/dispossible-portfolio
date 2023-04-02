@@ -14,8 +14,8 @@ export default function Navigation({ isHomePage }: NavigationProps) {
     useEffect(() => {
         const checkMenuSize = () => {
             if ($menu.current) {
-                const rect = $menu.current.getBoundingClientRect();
-                $menu.current.style.setProperty("--menu-size", rect.height + "px");
+                const height = $menu.current.clientHeight;
+                $menu.current.style.setProperty("--menu-size", height + "px");
             }
         };
 

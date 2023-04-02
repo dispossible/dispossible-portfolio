@@ -1,6 +1,6 @@
 import { PhotoData } from "@/lib/photos";
+import useAnimationFrame from "@/lib/useAnimationFrame";
 import useScreenSize from "@/lib/useScreenSize";
-import useScroll from "@/lib/useScroll";
 import Image from "next/image";
 import { useMemo, useRef } from "react";
 import PageWrapper from "../PageWrapper";
@@ -54,13 +54,12 @@ export default function PhotoGallery({ photos }: PhotoGalleryProps) {
 
     const $section = useRef<HTMLElement>(null);
 
-    useScroll(() => {
+    useAnimationFrame(() => {
         if (!$section.current) {
             return;
         }
-        const rect = $section.current.getBoundingClientRect();
-        const sectionTop = window.scrollY + rect.top;
-        $section.current.style.setProperty("--scroll-position", `${window.scrollY - sectionTop}px`);
+        const top = $section.current.offsetTop;
+        $section.current.style.setProperty("--scroll-position", `${window.scrollY - top}px`);
     });
 
     return (

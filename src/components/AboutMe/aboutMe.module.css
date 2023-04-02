@@ -91,7 +91,7 @@
 .ring {
     height: 0;
     filter: drop-shadow(0 0 4px white);
-    filter: url("#aboutGlow");
+    filter: blur(1px) url("#aboutGlow");
 
     &::before {
         content: "";

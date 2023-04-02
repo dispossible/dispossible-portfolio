@@ -17,13 +17,11 @@ export default function Thumbnail({ className, href, imageUrl, title }: Thumbnai
 
     const handleMouseMove: MouseEventHandler<HTMLDivElement> = (e) => {
         if ($thumb.current) {
-            const thumbRect = $thumb.current.getBoundingClientRect();
+            const xPx = e.pageX - $thumb.current.offsetLeft;
+            const yPx = e.pageY - $thumb.current.offsetTop;
 
-            const xPx = e.clientX - thumbRect.left;
-            const yPx = e.clientY - thumbRect.top;
-
-            const x = xPx / thumbRect.width;
-            const y = yPx / thumbRect.height;
+            const x = xPx / $thumb.current.clientWidth;
+            const y = yPx / $thumb.current.clientHeight;
 
             setMousePos({
                 x,
