@@ -1,26 +1,21 @@
-import { DependencyList, useEffect } from "react";
+import { useEffect, useRef } from "react";
 
-export default function useAnimationFrame<T extends object | void = any>(
-    callback: (delta: number, store: T) => T,
-    dependencies: DependencyList = [],
-    store?: T
-) {
+export default function useAnimationFrame(callback: (delta: number) => void) {
+    const requestRef = useRef<number>();
+    const previousTimeRef = useRef(Date.now());
+
+    const tick = (time: number) => {
+        const delta = time - previousTimeRef.current;
+        callback(delta);
+        previousTimeRef.current = time;
+        requestRef.current = requestAnimationFrame(tick);
+    };
+
     useEffect(() => {
-        let stop = false;
-        let lastFrameTime = Date.now();
-        let valueStore = { ...store } as T;
-        const updateOffset = () => {
-            if (!stop) {
-                const delta = Date.now() - lastFrameTime;
-                valueStore = callback(delta, valueStore);
-                lastFrameTime = Date.now();
-                requestAnimationFrame(updateOffset);
-            }
-        };
-        requestAnimationFrame(updateOffset);
+        requestRef.current = requestAnimationFrame(tick);
         return () => {
-            stop = true;
+            if (requestRef.current) cancelAnimationFrame(requestRef.current);
         };
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, dependencies);
+    }, []);
 }

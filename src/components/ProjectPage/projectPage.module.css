@@ -25,6 +25,7 @@
     background: hsla(0deg 0% 100% / 20%);
     backdrop-filter: blur(8px);
     clip-path: polygon(1.6em 0%, 100% 0%, 100% calc(100% - 1.6em), calc(100% - 1.6em) 100%, 0% 100%, 0% 1.6em);
+    text-align: center;
 }
 
 .content {

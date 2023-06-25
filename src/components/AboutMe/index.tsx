@@ -45,8 +45,9 @@ export default function AboutMe() {
                         After gaining experience in web design, I transitioned to working on that eCommerce systems
                         development team. This involved learning Java for backend development and rebuilding the
                         company&apos;s frontend systems. As I continued to develop my skills, I picked up JavaScript
-                        frameworks such as React and used them to create a comprehensive CMS editor for non-technical
-                        users to build and maintain their website easily.
+                        frameworks such as React and used them to create a comprehensive{" "}
+                        <abbr title="Content Management System">CMS</abbr> editor for non-technical users to build and
+                        maintain their website easily.
                     </p>
                     <p>
                         I had the opportunity to work on an <abbr title="Electronic Point of Sale">EPoS</abbr> system

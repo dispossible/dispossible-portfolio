@@ -1,7 +1,8 @@
 import clsx from "clsx";
 import Link from "next/link";
-import { CSSProperties, MouseEventHandler, useRef, useState } from "react";
+import { CSSProperties, MouseEventHandler, useCallback, useRef, useState } from "react";
 
+import useAnimationFrame from "@/lib/useAnimationFrame";
 import style from "./thumbnail.module.css";
 
 interface ThumbnailProps {
@@ -12,10 +13,14 @@ interface ThumbnailProps {
 }
 
 export default function Thumbnail({ className, href, imageUrl, title }: ThumbnailProps) {
-    const [mousePos, setMousePos] = useState({ x: 0.5, y: 0.5 });
+    const [currentPos, setCurrentPos] = useState({ x: 0.5, y: 0.5 });
+
     const $thumb = useRef<HTMLDivElement>(null);
 
-    const handleMouseMove: MouseEventHandler<HTMLDivElement> = (e) => {
+    const targetPos = useRef({ x: 0.5, y: 0.5 });
+    const speed = 5; // Bigger == Slower
+
+    const handleMouseMove: MouseEventHandler<HTMLDivElement> = useCallback((e) => {
         if ($thumb.current) {
             const xPx = e.pageX - $thumb.current.offsetLeft;
             const yPx = e.pageY - $thumb.current.offsetTop;
@@ -23,18 +28,45 @@ export default function Thumbnail({ className, href, imageUrl, title }: Thumbnai
             const x = xPx / $thumb.current.clientWidth;
             const y = yPx / $thumb.current.clientHeight;
 
-            setMousePos({
+            targetPos.current = {
                 x,
                 y,
-            });
+            };
         }
-    };
-    const handleMouseOut = () => {
-        setMousePos({
+    }, []);
+    const handleMouseOut = useCallback(() => {
+        targetPos.current = {
             x: 0.5,
             y: 0.5,
+        };
+    }, []);
+
+    useAnimationFrame((delta) => {
+        setCurrentPos(({ x, y }) => {
+            if (delta < 1) {
+                return { x, y };
+            }
+
+            const distanceX = targetPos.current.x - x;
+            const distanceY = targetPos.current.y - y;
+
+            if (Math.abs(distanceX) < 0.0001) {
+                x = targetPos.current.x;
+            } else {
+                x += distanceX / (delta * speed);
+            }
+            if (Math.abs(distanceY) < 0.0001) {
+                y = targetPos.current.y;
+            } else {
+                y += distanceY / (delta * speed);
+            }
+
+            return {
+                x,
+                y,
+            };
         });
-    };
+    });
 
     return (
         <div
@@ -42,8 +74,8 @@ export default function Thumbnail({ className, href, imageUrl, title }: Thumbnai
             style={
                 {
                     "--thumb": `url("${imageUrl}")`,
-                    "--x": mousePos.x,
-                    "--y": mousePos.y,
+                    "--x": currentPos.x,
+                    "--y": currentPos.y,
                 } as CSSProperties
             }
             onMouseMove={handleMouseMove}
