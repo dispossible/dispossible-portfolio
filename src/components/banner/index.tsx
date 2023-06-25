@@ -129,7 +129,7 @@ export default function Banner() {
                 xmlns="http://www.w3.org/2000/svg"
             >
                 <path
-                    fill="#393B36"
+                    fill="var(--color-fg)"
                     d="M72.4 407.2 114 364h18.4l39.2 43.2H72.4ZM60.8 210.8l42.8 41.6v98l-42.8 39.2V210.8ZM72 .8h99.2L131.6 44h-18L72 .8Zm-12 196V18l42.8 38.8V156L60 196.8Zm-59.6 16V194l42.8-38.8V254L.4 212.8Z"
                 />
             </svg>
@@ -142,7 +142,7 @@ export default function Banner() {
             >
                 <path
                     transform="rotate(180 86 204)"
-                    fill="#393B36"
+                    fill="var(--color-fg)"
                     d="M72.4 407.2 114 364h18.4l39.2 43.2H72.4ZM60.8 210.8l42.8 41.6v98l-42.8 39.2V210.8ZM72 .8h99.2L131.6 44h-18L72 .8Zm-12 196V18l42.8 38.8V156L60 196.8Zm-59.6 16V194l42.8-38.8V254L.4 212.8Z"
                 />
             </svg>

@@ -21,5 +21,6 @@ export default function useAnimationFrame<T extends object | void = any>(
         return () => {
             stop = true;
         };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, dependencies);
 }

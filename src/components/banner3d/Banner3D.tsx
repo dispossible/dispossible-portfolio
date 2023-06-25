@@ -1,5 +1,5 @@
 import { range } from "@/lib/range";
-import { useAnimationFrame } from "@/lib/useAnimationFrame";
+import useAnimationFrame from "@/lib/useAnimationFrame";
 import { SVGProps, useState } from "react";
 import style from "./banner3d.module.css";
 

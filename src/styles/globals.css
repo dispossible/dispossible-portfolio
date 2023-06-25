@@ -21,13 +21,24 @@ body {
     font-family: var(--font-mono);
     font-weight: 400;
     background: var(--color-bg, black);
-    background-image: radial-gradient(circle at 1px 1px, hsla(0deg 0% 100% / 20%) 1px, hsla(0deg 0% 100% / 0%) 1px);
-    background-size: 100px 100px;
+    background-image: radial-gradient(ellipse at 50% 50%, hsla(0deg 0% 0% / 0%) 50%, hsla(0deg 0% 0% / 25%) 100%),
+        radial-gradient(circle at 1px 1px, hsla(0deg 0% 100% / 20%) 1px, hsla(0deg 0% 100% / 0%) 1px);
+    background-size: 100% 100%, 100px 100px;
     background-attachment: fixed;
     font-size: 16px;
 
-    /* Move the background at 20% speed of the scroll with a 5px offset jus to dis-align the top pixel */
-    background-position: center calc((var(--scroll-position) * -0.2) - 5px);
+    /* Move the background at 20% speed of the scroll with a 5px offset just to dis-align the top pixel */
+    background-position: center center, center calc((var(--scroll-position) * -0.2) - 5px);
+
+    &::before {
+        content: "";
+        background: var(--img-noise);
+        opacity: 0.1;
+        position: fixed;
+        inset: 0;
+        mix-blend-mode: screen;
+        pointer-events: none;
+    }
 }
 
 main {

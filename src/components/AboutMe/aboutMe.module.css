@@ -9,10 +9,15 @@
 .layout {
     display: grid;
     grid-template-columns: 1fr 260px 1fr;
-    gap: 16px;
+    gap: 0 32px;
+
+    @media (width < 1200px) {
+        gap: 0 16px;
+    }
 
     @media (width < 900px) {
         grid-template-columns: 1fr auto;
+        gap: 16px;
     }
 
     @media (width < 650px) {
@@ -68,6 +73,20 @@
 
     @media (width < 650px) {
         margin-right: -40px;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        inset: 0;
+        top: 24px;
+        width: 165px;
+        aspect-ratio: 1 / 1;
+        border: 24px solid hsla(90deg 16% 50% / 40%);
+        border-radius: 100%;
+        filter: blur(60px);
+        mix-blend-mode: screen;
     }
 }
 

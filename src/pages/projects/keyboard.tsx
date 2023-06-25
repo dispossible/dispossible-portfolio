@@ -1,3 +1,4 @@
+import ProjectPage from "@/components/ProjectPage";
 import { ProjectPostMeta } from "@/lib/projects";
 
 export const projectData: ProjectPostMeta = {
@@ -8,7 +9,7 @@ export const projectData: ProjectPostMeta = {
 
 export default function Component() {
     return (
-        <main>
+        <ProjectPage {...projectData}>
             <p>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio quibusdam voluptates atque sunt,
                 autem eius. Modi accusantium deleniti at dolorem repellat officia voluptas esse sit dolorum sint, et
@@ -39,6 +40,6 @@ export default function Component() {
                 hic, deleniti molestias debitis delectus id architecto officiis excepturi fuga eveniet, sit, modi iste
                 provident esse cupiditate quibusdam? Iste sapiente voluptatum quidem.
             </p>
-        </main>
+        </ProjectPage>
     );
 }

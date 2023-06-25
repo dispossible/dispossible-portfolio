@@ -26,51 +26,53 @@ export default function Navigation({ isHomePage }: NavigationProps) {
 
     return (
         <nav className={styles.root}>
-            <ol
-                ref={$menu}
-                className={clsx(styles.list, {
-                    [styles.listOpen]: open,
-                })}
-                onClick={() => {
-                    setOpen(false);
-                }}
-            >
-                <li>
-                    <AnchorLink isHomePage={isHomePage} anchor="top">
-                        {isHomePage ? "Top" : "Home"}
-                    </AnchorLink>
-                </li>
-                <li>
-                    <AnchorLink isHomePage={isHomePage} anchor="projects">
-                        Projects
-                    </AnchorLink>
-                </li>
-                <li>
-                    <AnchorLink isHomePage={isHomePage} anchor={"about"}>
-                        About
-                    </AnchorLink>
-                </li>
-                <li>
-                    <AnchorLink isHomePage={isHomePage} anchor={"photography"}>
-                        Photography
-                    </AnchorLink>
-                </li>
-                <li>
-                    <AnchorLink isHomePage={isHomePage} anchor={"contact"}>
-                        Contact
-                    </AnchorLink>
-                </li>
-            </ol>
-            <button
-                className={clsx(styles.toggle, {
-                    [styles.toggleOpen]: open,
-                })}
-                onClick={() => {
-                    setOpen((o) => !o);
-                }}
-            >
-                ☰ {!open ? "Menu" : "Close"}
-            </button>
+            <div className={styles.wrap}>
+                <ol
+                    ref={$menu}
+                    className={clsx(styles.list, {
+                        [styles.listOpen]: open,
+                    })}
+                    onClick={() => {
+                        setOpen(false);
+                    }}
+                >
+                    <li>
+                        <AnchorLink isHomePage={isHomePage} anchor="top">
+                            {isHomePage ? "Top" : "Home"}
+                        </AnchorLink>
+                    </li>
+                    <li>
+                        <AnchorLink isHomePage={isHomePage} anchor="projects">
+                            Projects
+                        </AnchorLink>
+                    </li>
+                    <li>
+                        <AnchorLink isHomePage={isHomePage} anchor={"about"}>
+                            About
+                        </AnchorLink>
+                    </li>
+                    <li>
+                        <AnchorLink isHomePage={isHomePage} anchor={"photography"}>
+                            Photography
+                        </AnchorLink>
+                    </li>
+                    <li>
+                        <AnchorLink isHomePage={isHomePage} anchor={"contact"}>
+                            Contact
+                        </AnchorLink>
+                    </li>
+                </ol>
+                <button
+                    className={clsx(styles.toggle, {
+                        [styles.toggleOpen]: open,
+                    })}
+                    onClick={() => {
+                        setOpen((o) => !o);
+                    }}
+                >
+                    ☰ {!open ? "Menu" : "Close"}
+                </button>
+            </div>
         </nav>
     );
 }
