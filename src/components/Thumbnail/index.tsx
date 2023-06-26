@@ -3,16 +3,18 @@ import Link from "next/link";
 import { CSSProperties, MouseEventHandler, useCallback, useRef, useState } from "react";
 
 import useAnimationFrame from "@/lib/useAnimationFrame";
+import { StaticImageData } from "next/image";
 import style from "./thumbnail.module.css";
 
 interface ThumbnailProps {
     className?: string;
-    imageUrl: string;
+    imageUrl?: string;
+    image?: StaticImageData;
     title: string;
     href: string;
 }
 
-export default function Thumbnail({ className, href, imageUrl, title }: ThumbnailProps) {
+export default function Thumbnail({ className, href, image, imageUrl, title }: ThumbnailProps) {
     const [currentPos, setCurrentPos] = useState({ x: 0.5, y: 0.5 });
 
     const $thumb = useRef<HTMLDivElement>(null);
@@ -73,7 +75,7 @@ export default function Thumbnail({ className, href, imageUrl, title }: Thumbnai
             className={clsx(className, style.root)}
             style={
                 {
-                    "--thumb": `url("${imageUrl}")`,
+                    "--thumb": `url("${image?.src ?? imageUrl}")`,
                     "--x": currentPos.x,
                     "--y": currentPos.y,
                 } as CSSProperties

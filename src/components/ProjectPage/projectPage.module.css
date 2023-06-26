@@ -6,7 +6,6 @@
     display: grid;
     place-items: center;
     padding: 32px;
-    margin-top: 6rem;
     position: relative;
     overflow: clip;
 
@@ -41,5 +40,10 @@
 
     & > :first-child {
         margin-top: 0;
+    }
+
+    & img {
+        width: 100%;
+        height: auto;
     }
 }

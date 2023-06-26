@@ -4,6 +4,7 @@
 */
 
 import fs from "fs";
+import { StaticImageData } from "next/image";
 import path from "path";
 
 const projectsPath = "src/pages/projects";
@@ -16,6 +17,10 @@ export async function getProjectsData() {
     const projectsData: ProjectPost[] = [];
 
     for (let fileName of fileNames) {
+        if (!fileName.endsWith(".tsx")) {
+            continue;
+        }
+
         // Remove ".tsx" from file name to get id
         const id = fileName.replace(/\.tsx$/, "");
 
@@ -40,7 +45,7 @@ export async function getProjectsData() {
 export interface ProjectPostMeta {
     title: string;
     date: string | number;
-    thumb: string;
+    thumb: StaticImageData;
 }
 
 export interface ProjectPost extends ProjectPostMeta {

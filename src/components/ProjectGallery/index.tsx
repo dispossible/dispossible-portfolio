@@ -23,7 +23,7 @@ export function ProjectGallery({ projects }: ProjectGalleryProps) {
                     <Thumbnail
                         key={project.id}
                         className={styles.card}
-                        imageUrl={`/projects/${project.thumb}`}
+                        image={project.thumb}
                         title={project.title}
                         href={`/projects/${project.id}`}
                     />
