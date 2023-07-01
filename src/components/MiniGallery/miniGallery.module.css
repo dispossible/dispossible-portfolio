@@ -1,0 +1,25 @@
+.gallery {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(calc(600px / var(--columns, 3)), 1fr));
+}
+
+.image {
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: center center;
+    vertical-align: top;
+}
+
+.largeImage {
+    object-fit: contain;
+    max-height: calc(80vh - 32px);
+    vertical-align: top;
+}
+
+.button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+}

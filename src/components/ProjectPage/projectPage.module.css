@@ -25,6 +25,7 @@
     backdrop-filter: blur(8px);
     clip-path: polygon(1.6em 0%, 100% 0%, 100% calc(100% - 1.6em), calc(100% - 1.6em) 100%, 0% 100%, 0% 1.6em);
     text-align: center;
+    text-shadow: 0 2px 2px hsla(0deg 0% 0% / 60%);
 }
 
 .content {
@@ -45,5 +46,6 @@
     & img {
         width: 100%;
         height: auto;
+        border-radius: var(--img-radius);
     }
 }
