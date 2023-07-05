@@ -12,24 +12,29 @@ const projectsDirectory = path.join(process.cwd(), projectsPath);
 
 export async function getProjectsData() {
     // Get file names under /projects
-    const fileNames = fs.readdirSync(projectsDirectory);
+    const folders = fs.readdirSync(projectsDirectory);
 
     const projectsData: ProjectPost[] = [];
 
-    for (let fileName of fileNames) {
-        if (!fileName.endsWith(".tsx")) {
+    for (let folderName of folders) {
+        const folderStats = fs.statSync(`${projectsPath}/${folderName}`);
+
+        // Filter out any files
+        if (!folderStats.isDirectory()) {
             continue;
         }
 
-        // Remove ".tsx" from file name to get id
-        const id = fileName.replace(/\.tsx$/, "");
+        // Make sure the path has an index
+        if (!fs.existsSync(`${projectsPath}/${folderName}/index.tsx`)) {
+            continue;
+        }
 
         // import data
-        const data = await import(`../pages/projects/${id}.tsx`);
+        const data = await import(`../pages/projects/${folderName}/index.tsx`);
 
         // Combine the data with the id
         projectsData.push({
-            id,
+            id: folderName,
             ...data.projectData,
         } as ProjectPost);
     }
