@@ -3,6 +3,7 @@
         "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 
     --color-text: white;
+    --color-link: hsl(80deg 75% 55%);
 
     --color-values-bg: 90deg 9% 8%;
     --color-bg: hsl(var(--color-values-bg));

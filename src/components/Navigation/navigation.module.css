@@ -15,7 +15,6 @@
         --tab-height: 2em;
         --tab-width: 18em;
 
-        padding-bottom: calc(var(--tab-height) / 3);
         clip-path: polygon(
             0% 0%,
             100% 0%,

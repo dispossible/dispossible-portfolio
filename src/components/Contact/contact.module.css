@@ -33,7 +33,6 @@
     width: 90%;
     max-width: 1000px;
     grid-template-columns: 1fr 6fr 1fr;
-    grid-template-rows: 1fr min-content;
     gap: 16px 24px;
     align-items: center;
 
@@ -47,7 +46,7 @@
     --multiplier: calc(var(--bracket-multiplier) + 0.05);
 
     grid-column: 1;
-    grid-row: 1 / span 2;
+    grid-row: 1;
     position: relative;
     z-index: -1;
     bottom: calc(var(--scroll-position-end) * var(--multiplier, var(--bracket-multiplier)));
@@ -57,7 +56,6 @@
     }
 
     @media (width < 750px) {
-        grid-row: 1;
         transform: rotate(90deg);
         height: 200px;
         justify-self: center;
