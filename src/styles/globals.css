@@ -80,3 +80,11 @@ a:not([class]):hover::before {
     outline: 1px dotted var(--color-text);
     outline-offset: 4px;
 }
+
+figure {
+    margin: 0;
+
+    & figcaption {
+        font-size: 0.7em;
+    }
+}
