@@ -51,9 +51,13 @@
     }
 
     & img {
-        width: 100%;
+        max-width: 100%;
         height: auto;
         border-radius: var(--img-radius);
+    }
+
+    & > img {
+        margin-bottom: 16px;
     }
 }
 

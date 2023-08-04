@@ -88,3 +88,11 @@ figure {
         font-size: 0.7em;
     }
 }
+
+img {
+    vertical-align: top;
+}
+
+.u-center {
+    text-align: center;
+}

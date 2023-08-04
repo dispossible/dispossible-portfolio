@@ -263,7 +263,7 @@ export default function Component() {
             </p>
 
             <p>
-                The final step was a lick of paint. Which is a new skill that I have been picking on recently to put the
+                The final step was a lick of paint. Which is a new skill that I have been picking up recently to put the
                 finishing touch on my prints. Turns out not playing Warhammer for my teenage years was an oversight, but
                 I think it came out passably.
             </p>
