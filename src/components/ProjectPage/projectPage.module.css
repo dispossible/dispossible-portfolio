@@ -58,6 +58,7 @@
 
     & > img {
         margin-bottom: 16px;
+        background: black;
     }
 }
 
