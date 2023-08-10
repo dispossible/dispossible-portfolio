@@ -328,7 +328,7 @@ RGB getComplimentColor(void){
 
             <p>
                 This project touched on a wide set of different skills; some coding done in a language that was new to
-                me. Some new software utilities for flashing firmware. I Learnt way more about keyboard functionality
+                me. Some new software utilities for flashing firmware. I learnt way more about keyboard functionality
                 and specs, as well as what to look for when buying. Plus a little bit of 3D modeling and printing.
             </p>
 

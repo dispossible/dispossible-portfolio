@@ -1,0 +1,21 @@
+.root {
+    position: relative;
+}
+
+.btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    color: inherit;
+    padding: 8px;
+    background: none;
+    font-size: 1.5em;
+    border: 0;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: ease 200ms;
+
+    &:hover {
+        opacity: 1;
+    }
+}

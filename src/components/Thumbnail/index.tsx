@@ -43,7 +43,7 @@ export default function Thumbnail({ className, href, image, imageUrl, title }: T
         };
     }, []);
 
-    useAnimationFrame((delta) => {
+    const updatePosition = useCallback((delta: number) => {
         setCurrentPos(({ x, y }) => {
             if (delta < 1) {
                 return { x, y };
@@ -68,7 +68,8 @@ export default function Thumbnail({ className, href, image, imageUrl, title }: T
                 y,
             };
         });
-    });
+    }, []);
+    useAnimationFrame(updatePosition);
 
     return (
         <div

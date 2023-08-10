@@ -10,7 +10,7 @@ const font = Roboto_Mono({ subsets: ["latin"], weight: ["400"], display: "fallba
 
 const updateScrollPosition = () => {
     const height = document.body.offsetHeight - window.innerHeight;
-    const scroll = window.pageYOffset || document.documentElement.scrollTop;
+    const scroll = window.scrollY || document.documentElement.scrollTop;
     window.document.body.style.setProperty("--scroll-position", `${scroll}px`);
     window.document.body.style.setProperty("--scroll-position-end", `${height - scroll}px`);
 };

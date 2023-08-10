@@ -1,0 +1,102 @@
+.root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fdf0e2;
+    margin: 0;
+    aspect-ratio: 1;
+    overflow: clip;
+    border-radius: var(--img-radius);
+}
+
+.clock {
+    width: 300px;
+    height: 300px;
+    color: rgba(0 0 0 / 80%);
+    border-radius: 999px;
+    position: relative;
+    font-size: 20px;
+    font-family: sans-serif;
+    border: 12px solid #fff6ec;
+    box-shadow: 0 20px 26px 0 rgba(20 10 0 / 40%), 0 0 6px 1px rgba(0 0 0 / 7%),
+        40px 80px 60px -15px rgba(50 25 0 / 20%), 0 4px 10px 0 rgba(50 20 0 / 30%) inset;
+    background-color: #fff6ec;
+    background-image: linear-gradient(-45deg, transparent 55px, #da6e12 56px, #da6e12 57px, transparent 58px),
+        radial-gradient(circle 12px at 150px 150px, #da6e12 3px, #223 4px, #223 8px, transparent 9px),
+        radial-gradient(circle 12px at 202.5px 240px, #223 2.5px, transparent 3.5px),
+        linear-gradient(60deg, transparent 42px, #223 43px, #223 48px, transparent 49px),
+        radial-gradient(circle 12px at 166.5px 90px, #223 4px, transparent 5px),
+        linear-gradient(-75deg, transparent 41px, #223 42px, #223 50px, transparent 51px),
+        linear-gradient(-45deg, transparent 55px, #c7aa8a 56px, #c7aa8a 57px, transparent 58px),
+        radial-gradient(circle 12px at 150px 150px, #c7aa8a 3px, #c7aa8a 4px, #c7aa8a 8px, transparent 9px),
+        radial-gradient(circle 12px at 202.5px 240px, #c7aa8a 2.5px, transparent 3.5px),
+        linear-gradient(60deg, transparent 42px, #c7aa8a 43px, #c7aa8a 48px, transparent 49px),
+        radial-gradient(circle 12px at 166.5px 90px, #c7aa8a 4px, transparent 5px),
+        linear-gradient(-75deg, transparent 41px, #c7aa8a 42px, #c7aa8a 50px, transparent 51px),
+        radial-gradient(circle 300px at 150px 30px, transparent, rgba(60 30 0 / 20%)),
+        radial-gradient(circle 300px at 150px 150px, #fff6ec 132px, transparent 134px),
+        linear-gradient(150deg, transparent 49.4%, rgba(50 30 0 / 40%) 50%, transparent 50.6%),
+        linear-gradient(120deg, transparent 49.4%, rgba(50 30 0 / 40%) 50%, transparent 50.6%),
+        linear-gradient(90deg, transparent 49.4%, rgba(50 30 0 / 40%) 50%, transparent 50.6%),
+        linear-gradient(60deg, transparent 49.4%, rgba(50 30 0 / 40%) 50%, transparent 50.6%),
+        linear-gradient(30deg, transparent 49.4%, rgba(50 30 0 / 40%) 50%, transparent 50.6%),
+        linear-gradient(0deg, transparent 49.4%, rgba(50 30 0 / 40%) 50%, transparent 50.6%),
+        radial-gradient(circle 300px at 150px 150px, #fff6ec 145px, transparent 145px),
+        linear-gradient(174deg, transparent 49.7%, rgba(50 30 0 / 40%) 50%, transparent 50.3%),
+        linear-gradient(168deg, transparent 49.7%, rgba(50 30 0 / 40%) 50%, transparent 50.3%),
+        linear-gradient(162deg, transparent 49.7%, rgba(50 30 0 / 40%) 50%, transparent 50.3%),
+        linear-gradient(156deg, transparent 49.7%, rgba(50 30 0 / 40%) 50%, transparent 50.3%),
+        linear-gradient(144deg, transparent 49.7%, rgba(50 30 0 / 40%) 50%, transparent 50.3%),
+        linear-gradient(138deg, transparent 49.7%, rgba(50 30 0 / 40%) 50%, transparent 50.3%),
+        linear-gradient(132deg, transparent 49.7%, rgba(50 30 0 / 40%) 50%, transparent 50.3%),
+        linear-gradient(126deg, transparent 49.7%, rgba(50 30 0 / 40%) 50%, transparent 50.3%),
+        linear-gradient(114deg, transparent 49.7%, rgba(50 30 0 / 40%) 50%, transparent 50.3%),
+        linear-gradient(108deg, transparent 49.7%, rgba(50 30 0 / 40%) 50%, transparent 50.3%),
+        linear-gradient(102deg, transparent 49.7%, rgba(50 30 0 / 40%) 50%, transparent 50.3%),
+        linear-gradient(96deg, transparent 49.7%, rgba(50 30 0 / 40%) 50%, transparent 50.3%),
+        linear-gradient(84deg, transparent 49.7%, rgba(50 30 0 / 40%) 50%, transparent 50.3%),
+        linear-gradient(78deg, transparent 49.7%, rgba(50 30 0 / 40%) 50%, transparent 50.3%),
+        linear-gradient(72deg, transparent 49.7%, rgba(50 30 0 / 40%) 50%, transparent 50.3%),
+        linear-gradient(66deg, transparent 49.7%, rgba(50 30 0 / 40%) 50%, transparent 50.3%),
+        linear-gradient(54deg, transparent 49.7%, rgba(50 30 0 / 40%) 50%, transparent 50.3%),
+        linear-gradient(48deg, transparent 49.7%, rgba(50 30 0 / 40%) 50%, transparent 50.3%),
+        linear-gradient(42deg, transparent 49.7%, rgba(50 30 0 / 40%) 50%, transparent 50.3%),
+        linear-gradient(36deg, transparent 49.7%, rgba(50 30 0 / 40%) 50%, transparent 50.3%),
+        linear-gradient(24deg, transparent 49.7%, rgba(50 30 0 / 40%) 50%, transparent 50.3%),
+        linear-gradient(18deg, transparent 49.7%, rgba(50 30 0 / 40%) 50%, transparent 50.3%),
+        linear-gradient(12deg, transparent 49.7%, rgba(50 30 0 / 40%) 50%, transparent 50.3%),
+        linear-gradient(6deg, transparent 49.7%, rgba(50 30 0 / 40%) 50%, transparent 50.3%);
+    background-size: 80px 80px, 300px 300px, 300px 300px, 90px 90px, 300px 300px, 50px 60px, 80px 80px, 300px 300px,
+        300px 300px, 90px 90px, 300px 300px, 50px 60px, 300px 300px, 300px 300px, 300px 300px, 300px 300px, 300px 300px,
+        300px 300px, 300px 300px, 300px 300px, 300px 300px, 300px 300px, 300px 300px, 300px 300px, 300px 300px,
+        300px 300px, 300px 300px, 300px 300px, 300px 300px, 300px 300px, 300px 300px, 300px 300px, 300px 300px,
+        300px 300px, 300px 300px, 300px 300px, 300px 300px, 300px 300px, 300px 300px, 300px 300px, 300px 300px,
+        300px 300px, 300px 300px, 300px 300px, 300px 300px;
+    background-position: 80px 140px, 0 0, 0 0, 150px 150px, 0 0, 148px 90px, 80px 145px, 0 3px, 0 5px, 150px 155px,
+        0 5px, 148px 95px, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0,
+        0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+    background-repeat: no-repeat;
+    text-shadow: 0 2px 1px #c7aa8a;
+    box-sizing: content-box;
+
+    &::before {
+        content: "9 3";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        word-spacing: 225px;
+        white-space: nowrap;
+    }
+
+    &::after {
+        content: "12 6";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        line-height: 235px;
+        width: 30px;
+        text-align: center;
+    }
+}

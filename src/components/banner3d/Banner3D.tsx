@@ -11,65 +11,11 @@ const FPS_1 = 1000 / 1;
 interface Banner3DProps {}
 
 export default function Banner3D(props: Banner3DProps) {
-    const [stopAnimationFog, setStopAnimationFog] = useState(false);
-    const [stopAnimationRipple, setStopAnimationRipple] = useState(false);
-    const [stopAnimationMotion, setStopAnimationMotion] = useState(false);
-    const [stopAnimationWater, setStopAnimationWater] = useState(false);
-
-    useAnimationFrame(
-        (delta, { frameTimes, stopOne, stopTwo, stopThree, stopFour }) => {
-            frameTimes.push(delta);
-            const avgDelta = frameTimes.reduce((sum, time) => sum + time, 0) / frameTimes.length;
-
-            //Detect poor FPS quickly and shut most of it down
-            if ((frameTimes.length > 0 && avgDelta > FPS_1) || (frameTimes.length > 1 && avgDelta > FPS_5)) {
-                setStopAnimationFog(true);
-                setStopAnimationRipple(true);
-                setStopAnimationMotion(true);
-                stopOne = true;
-                stopTwo = true;
-                stopThree = true;
-            }
-
-            // After 10 frames take a view on if we are getting 30fps
-            if (frameTimes.length > 5 && avgDelta > FPS_30) {
-                // Shut off animation layers in stages to increase fps
-                if (!stopOne) {
-                    setStopAnimationFog(true);
-                    frameTimes = [];
-                    stopOne = true;
-                } else if (!stopTwo) {
-                    setStopAnimationRipple(true);
-                    frameTimes = [];
-                    stopTwo = true;
-                } else if (!stopThree) {
-                    setStopAnimationMotion(true);
-                    frameTimes = [];
-                    stopThree = true;
-                } else {
-                    setStopAnimationWater(true);
-                    frameTimes = [];
-                    stopFour = true;
-                }
-            }
-
-            return { frameTimes, stopOne, stopTwo, stopThree, stopFour };
-        },
-        undefined,
-        {
-            frameTimes: [] as number[],
-            stopOne: false,
-            stopTwo: false,
-            stopThree: false,
-            stopFour: false,
-        }
-    );
-
     return (
-        <header className={style.banner}>
+        <div className={style.banner}>
             <div className={style.text}>
-                <h1 className={style.title}>Dispossible</h1>
-                <small className={style.subTitle}>Timothy Bailey</small>
+                <h1 className={style.title}>Title</h1>
+                <small className={style.subTitle}>Sub Title</small>
             </div>
             <div className={style.squareWrap}>
                 <svg
@@ -138,13 +84,13 @@ export default function Banner3D(props: Banner3DProps) {
                             <feTurbulence
                                 type="fractalNoise"
                                 baseFrequency="0.05 0.4"
-                                numOctaves={stopAnimationRipple ? "2" : "4"}
+                                numOctaves={"4"}
                                 result="turbulence"
                             >
                                 <animate
                                     attributeName="baseFrequency"
                                     values="0.05 0.4; 0.02 0.35; 0.05 0.4"
-                                    dur={stopAnimationRipple ? "0s" : "160s"}
+                                    dur={"160s"}
                                     begin="-10s"
                                     repeatCount="indefinite"
                                     calcMode="spline"
@@ -156,7 +102,7 @@ export default function Banner3D(props: Banner3DProps) {
                                 <animate
                                     attributeName="values"
                                     values="0;180;360"
-                                    dur={stopAnimationWater ? "0s" : "10s"}
+                                    dur={"10s"}
                                     repeatCount="indefinite"
                                 />
                             </feColorMatrix>
@@ -193,20 +139,13 @@ export default function Banner3D(props: Banner3DProps) {
                     <g strokeWidth={0.1} stroke="white" fill="none">
                         <g filter="url(#banner-glow)">
                             <path d="M20 70 m 60 20" />
-                            <path
-                                id="banner-w1"
-                                d="M 49.5 75 a 20 2.8 0 1 0 1 0 Z"
-                                className={style.bob}
-                                style={{
-                                    animationDuration: stopAnimationMotion ? "0s" : undefined,
-                                }}
-                            />
+                            <path id="banner-w1" d="M 49.5 75 a 20 2.8 0 1 0 1 0 Z" className={style.bob} />
                             <path id="banner-w2" d="M 49.5 76.2 a 15 2 0 1 0 1 0 Z" />
                             <DashArray
                                 count={24}
                                 start={15}
                                 end={18}
-                                speed={stopAnimationMotion ? 0 : 0.8}
+                                speed={0.8}
                                 id="banner-w3"
                                 style={{
                                     transform: "translateY(29%)",
@@ -217,7 +156,7 @@ export default function Banner3D(props: Banner3DProps) {
                                 <animate
                                     attributeName="stroke-dashoffset"
                                     values={[0, Math.PI * -13, Math.PI * -13 * 2].join(";")}
-                                    dur={stopAnimationMotion ? "0s" : "11s"}
+                                    dur={"11s"}
                                     repeatCount="indefinite"
                                 />
                             </path>
@@ -227,7 +166,7 @@ export default function Banner3D(props: Banner3DProps) {
                                 end={12}
                                 endOffset={3}
                                 id="banner-w5"
-                                speed={stopAnimationMotion ? 0 : 3}
+                                speed={3}
                                 reverse
                                 style={{
                                     transform: "translateY(27%)",
@@ -238,7 +177,7 @@ export default function Banner3D(props: Banner3DProps) {
                                 <animate
                                     attributeName="stroke-dashoffset"
                                     values={[0, Math.PI * 9, Math.PI * 9 * 2].join(";")}
-                                    dur={stopAnimationMotion ? "0s" : "14s"}
+                                    dur={"14s"}
                                     startOffset="-5s"
                                     repeatCount="indefinite"
                                 />
@@ -312,16 +251,11 @@ export default function Banner3D(props: Banner3DProps) {
                     <defs>
                         <filter id="banner-clouds" colorInterpolationFilters="sRGB">
                             <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="8" />
-                            <feTurbulence
-                                result="turb"
-                                type="fractalNoise"
-                                baseFrequency="0.04 0.06"
-                                numOctaves={stopAnimationMotion ? "6" : "10"}
-                            >
+                            <feTurbulence result="turb" type="fractalNoise" baseFrequency="0.04 0.06" numOctaves={"10"}>
                                 <animate
                                     attributeName="baseFrequency"
                                     values="0.04 0.06; 0.06 0.08; 0.04 0.06"
-                                    dur={stopAnimationFog ? "0s" : "100s"}
+                                    dur={"100s"}
                                     repeatCount="indefinite"
                                     calcMode="spline"
                                     keyTimes="0; 0.5; 1"
@@ -332,7 +266,7 @@ export default function Banner3D(props: Banner3DProps) {
                                 <animate
                                     attributeName="values"
                                     values="0;180;360"
-                                    dur={stopAnimationFog ? "0s" : "10s"}
+                                    dur={"10s"}
                                     repeatCount="indefinite"
                                 />
                             </feColorMatrix>
@@ -348,7 +282,7 @@ export default function Banner3D(props: Banner3DProps) {
                     <path d="M100 100 M0 0 M35 40 h30 l-10 30 h-10 Z" fill="white" filter="url(#banner-clouds)" />
                 </svg>
             </div>
-        </header>
+        </div>
     );
 }
 

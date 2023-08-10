@@ -1,0 +1,81 @@
+.root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #eb4e32;
+    margin: 0;
+    aspect-ratio: 3 / 2;
+    overflow: clip;
+    border-radius: var(--img-radius);
+}
+
+.radio {
+    position: relative;
+    width: 316px;
+    height: 196px;
+    background-color: #e1a471;
+    border-radius: 18px;
+    border: 8px solid white;
+    box-shadow: 0 0 0 6px hsla(0deg 100% 18% / 70%) inset, -2px 3px 0 #9c0000, -50px 3px 0 #9c0000, -50px 0 0 #9c0000;
+    padding: 6px;
+    box-sizing: border-box;
+    background-image: linear-gradient(185deg, hsla(0deg 100% 18% / 75%) 23%, transparent 24%),
+        radial-gradient(circle 1px at 5px 5px, #b83712 80%, transparent 80%);
+    background-position: 0 0, 0 0;
+    background-size: 100% 100%, 10px 9px;
+    background-clip: border-box, content-box;
+
+    &::before {
+        box-sizing: content-box;
+        content: "";
+        position: absolute;
+        top: 195px;
+        right: 0;
+        width: 355px;
+        height: 6px;
+        border-radius: 99px;
+        background: #9c0000;
+    }
+
+    &::after {
+        box-sizing: content-box;
+        content: "";
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 100px;
+        height: 100px;
+        background-color: #e1a471;
+        border-radius: 999px;
+        border: 8px solid #fff;
+        box-shadow: -3px 0 0 0 #a00000 inset, -4px 0 0 0 #a00000, 0 4px 0 0 #a00000, -34px 70px 0 -49px #fff,
+            34px 70px 0 -49px #fff, -34px 61px 0 -56px #fff, 34px 61px 0 -56px #fff, -34px 71px 0 -46px #a00000,
+            34px 71px 0 -46px #a00000, -34px 61px 0 -54px #a00000, 34px 61px 0 -54px #a00000,
+            -220px 115px 0 -54px #a00000, -160px 115px 0 -54px #a00000, -30px 115px 0 -54px #a00000,
+            30px 115px 0 -54px #a00000;
+        background-image: radial-gradient(circle 24px at 50px 50px, #fff 68%, #a00000 72%, #a00000 80%, transparent 84%),
+            linear-gradient(0deg, #fff 49%, transparent 50%),
+            linear-gradient(66deg, transparent 48%, #f00 49%, transparent 50%),
+            radial-gradient(circle 60px at 50px 50px, #e1a471 68%, transparent 70%),
+            linear-gradient(170deg, transparent 48%, #a00000 49%, #a00000 50%, transparent 51%),
+            linear-gradient(160deg, transparent 48%, #a00000 49%, #a00000 50%, transparent 51%),
+            linear-gradient(150deg, transparent 48%, #a00000 49%, #a00000 50%, transparent 51%),
+            linear-gradient(140deg, transparent 48%, #a00000 49%, #a00000 50%, transparent 51%),
+            linear-gradient(130deg, transparent 48%, #a00000 49%, #a00000 50%, transparent 51%),
+            linear-gradient(120deg, transparent 48%, #a00000 49%, #a00000 50%, transparent 51%),
+            linear-gradient(110deg, transparent 48%, #a00000 49%, #a00000 50%, transparent 51%),
+            linear-gradient(100deg, transparent 48%, #a00000 49%, #a00000 50%, transparent 51%),
+            linear-gradient(90deg, transparent 48%, #a00000 49%, #a00000 50%, transparent 51%),
+            linear-gradient(80deg, transparent 48%, #a00000 49%, #a00000 50%, transparent 51%),
+            linear-gradient(70deg, transparent 48%, #a00000 49%, #a00000 50%, transparent 51%),
+            linear-gradient(60deg, transparent 48%, #a00000 49%, #a00000 50%, transparent 51%),
+            linear-gradient(50deg, transparent 48%, #a00000 49%, #a00000 50%, transparent 51%),
+            linear-gradient(40deg, transparent 48%, #a00000 49%, #a00000 50%, transparent 51%),
+            linear-gradient(30deg, transparent 48%, #a00000 49%, #a00000 50%, transparent 51%),
+            linear-gradient(20deg, transparent 48%, #a00000 49%, #a00000 50%, transparent 51%),
+            linear-gradient(10deg, transparent 48%, #a00000 49%, #a00000 50%, transparent 51%),
+            linear-gradient(0deg, transparent 49%, #a00000 50%, #a00000 51%, transparent 52%);
+        background-size: 100% 100%;
+        background-position: 0 0;
+    }
+}

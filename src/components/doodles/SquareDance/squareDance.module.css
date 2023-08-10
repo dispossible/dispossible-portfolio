@@ -1,0 +1,98 @@
+.root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #34313b;
+    margin: 0;
+    aspect-ratio: 1 / 1.2;
+    overflow: clip;
+    border-radius: var(--img-radius);
+}
+
+.one,
+.two,
+.three {
+    width: 100px;
+    height: 100px;
+    box-sizing: border-box;
+    transform-origin: right bottom;
+    position: relative;
+    box-shadow: 0 0 0 1px #9c79be inset, 0 0 0 1px #9c79be;
+}
+
+.one {
+    animation: rotate 2s linear infinite;
+    margin-top: 200px;
+}
+
+.two {
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    transform-origin: left bottom;
+    animation: rotate2 2s linear infinite;
+}
+
+.three {
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    transform-origin: right bottom;
+    animation: rotate3 2s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: translateX(-100%) rotate(90deg);
+    }
+}
+
+@keyframes rotate2 {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(-180deg);
+    }
+}
+
+@keyframes rotate3 {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(180deg);
+    }
+}
+
+.floor {
+    width: 200px;
+    height: 2px;
+    background-image: repeating-linear-gradient(
+        90deg,
+        transparent 0,
+        transparent 33px,
+        #aaa 33px,
+        #aaa 66px,
+        transparent 66px,
+        transparent 100px
+    );
+    animation: floor 2s linear infinite;
+}
+
+@keyframes floor {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: -100px 0;
+    }
+}
