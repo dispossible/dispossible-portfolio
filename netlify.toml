@@ -1,0 +1,23 @@
+[[redirects]]
+    from = "dispossible.co.uk"
+    to = "dispossible.com"
+    status = 301
+    force = true
+
+[[redirects]]
+    from = "dispossible.co.uk/*"
+    to = "dispossible.com/:splat"
+    status = 301
+    force = true
+
+[[redirects]]
+    from = "www.dispossible.co.uk"
+    to = "dispossible.com"
+    status = 301
+    force = true
+
+[[redirects]]
+    from = "www.dispossible.co.uk/*"
+    to = "dispossible.com/:splat"
+    status = 301
+    force = true
