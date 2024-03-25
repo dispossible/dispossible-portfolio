@@ -7,6 +7,7 @@ import { Gif } from "@/components/Gif";
 import Image from "next/image";
 import cap from "./cap.gif";
 import capFrame from "./cap_frame.png";
+import thumbDepth from "./depth.png";
 import thumb from "./mcuThumb.png";
 import screenshot from "./screenshot.png";
 
@@ -14,6 +15,7 @@ export const projectData: ProjectPostMeta = {
     title: "MCU Timeline",
     date: "2022-02-28",
     thumb,
+    thumbDepth,
 };
 
 export default function Component() {

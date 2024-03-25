@@ -4,20 +4,24 @@ import { ProjectPostMeta } from "@/lib/projects";
 
 import Image from "next/image";
 import blender from "./blender.png";
+import thumbDepth from "./depth.png";
 import lmsh1 from "./lmsh1.png";
 import lmsh2 from "./lmsh2.jpg";
-import thumb from "./lmshThumb.jpg";
 import maya1 from "./maya1.jpg";
 import maya2 from "./maya2.png";
 import maya3 from "./maya3.png";
 import print from "./print.png";
 import printed from "./printed.jpg";
 import sword from "./sword.png";
+import thumb from "./thumbBg.png";
+import foreground from "./thumbFg.png";
 
 export const projectData: ProjectPostMeta = {
     title: "Let Me Solo Her",
     date: "2023-02-28",
     thumb,
+    thumbDepth,
+    foreground,
 };
 
 export default function Component() {

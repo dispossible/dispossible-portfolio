@@ -5,6 +5,7 @@ import Video from "@/components/Video";
 import { ProjectPostMeta } from "@/lib/projects";
 import Image from "next/image";
 
+import thumbDepth from "./depth.png";
 import image1 from "./keyboard1.jpg";
 import image2 from "./keyboard2.jpg";
 import image3 from "./keyboard3.png";
@@ -15,6 +16,7 @@ export const projectData: ProjectPostMeta = {
     title: "Custom Keyboard",
     date: "2023-03-10",
     thumb: keyboardThumb,
+    thumbDepth,
 };
 
 export default function Component() {

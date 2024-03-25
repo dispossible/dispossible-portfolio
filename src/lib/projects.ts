@@ -51,6 +51,8 @@ export interface ProjectPostMeta {
     title: string;
     date: string | number;
     thumb: StaticImageData;
+    thumbDepth: StaticImageData;
+    foreground?: StaticImageData;
 }
 
 export interface ProjectPost extends ProjectPostMeta {

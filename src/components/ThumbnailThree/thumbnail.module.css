@@ -1,0 +1,98 @@
+.root {
+    aspect-ratio: 2 / 1;
+    position: relative;
+}
+
+.thumbnail {
+    --parallax: 40%;
+    --rotate: 30deg;
+    --shadow: 16px;
+
+    position: absolute;
+    inset: 0;
+    border-radius: var(--img-radius);
+    display: grid;
+    place-items: center;
+    color: inherit;
+    text-decoration: none;
+    transform-style: preserve-3d;
+    background-image: var(--thumb);
+    background-size: calc(100% + var(--parallax));
+    background-clip: content-box;
+    background-repeat: no-repeat;
+
+    --rx: rotateX(calc(0deg - (var(--rotate) * (var(--y) - 0.5))));
+    --ry: rotateY(calc(0deg + (var(--rotate) * (var(--x) - 0.5))));
+
+    transform: var(--rx) var(--ry);
+
+    --px: calc(50% + (var(--parallax) * (var(--x) - 0.5)));
+    --py: calc(50% + (var(--parallax) * (var(--y) - 0.5)));
+
+    background-position: var(--px) var(--py);
+
+    --sx: calc((var(--shadow) * (var(--x) - 0.5)) * -1);
+    --sy: calc((var(--shadow) * (var(--y) - 0.5)) * -1);
+
+    box-shadow: 0 0 0 1px var(--color-fg), var(--sx) var(--sy) 0 0 hsla(0deg 0% 0% / 60%);
+
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        box-shadow: 0 0 30px 15px rgb(0 0 0 / 50%) inset;
+        z-index: 2;
+        border-radius: inherit;
+        background-image: var(--foreground);
+        background-size: 100%;
+    }
+
+    &:has(.canvasVisible) {
+        animation: remove-background 1000ms forwards;
+    }
+}
+
+@keyframes remove-background {
+    99% {
+        background-image: var(--thumb);
+    }
+
+    100% {
+        background-image: none;
+    }
+}
+
+.title {
+    margin: 0;
+    font-size: 1.2rem;
+    padding: 16px 3em;
+    text-shadow: 0 1px 2px hsla(0deg 0% 0% / 60%);
+    position: relative;
+    transform: translateZ(60px);
+    transform-style: preserve-3d;
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: hsla(0deg 0% 100% / 30%);
+        clip-path: polygon(2em 0%, 100% 0%, 100% calc(100% - 2em), calc(100% - 2em) 100%, 0% 100%, 0% 2em);
+        z-index: -1;
+        transform: translateZ(-20px);
+        backdrop-filter: blur(3px);
+    }
+}
+
+.canvas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    border-radius: inherit;
+    opacity: 0;
+}
+
+.canvasVisible {
+    opacity: 1;
+    transition: opacity 1000ms ease-in-out;
+}

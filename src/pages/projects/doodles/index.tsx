@@ -16,6 +16,7 @@ import Tardis from "@/components/doodles/Tardis";
 import Image from "next/image";
 import Link from "next/link";
 import Candles from "../../../components/doodles/Candles";
+import thumbDepth from "./depth.png";
 import thumb from "./doodleThumb.png";
 import techThing from "./tech-thing.png";
 
@@ -23,6 +24,7 @@ export const projectData: ProjectPostMeta = {
     title: "CSS Doodles",
     date: "2021-05-28",
     thumb,
+    thumbDepth,
 };
 
 export default function Component() {

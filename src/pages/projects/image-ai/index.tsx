@@ -6,6 +6,7 @@ import Code from "@/components/Code";
 import { MiniGallery } from "@/components/MiniGallery";
 import Video from "@/components/Video";
 import Image from "next/image";
+import thumbDepth from "./depth.png";
 import fails01 from "./fails-01.png";
 import fails02 from "./fails-02.png";
 import fails03 from "./fails-03.png";
@@ -46,6 +47,7 @@ export const projectData: ProjectPostMeta = {
     title: "Image Generation AI",
     date: "2023-04-31",
     thumb,
+    thumbDepth,
 };
 
 export default function Component() {

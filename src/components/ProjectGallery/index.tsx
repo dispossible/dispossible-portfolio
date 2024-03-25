@@ -1,6 +1,6 @@
 import { ProjectPost } from "@/lib/projects";
 import PageWrapper from "../PageWrapper";
-import Thumbnail from "../Thumbnail";
+import ThumbnailThree from "../ThumbnailThree";
 import styles from "./projectGallery.module.css";
 
 interface ProjectGalleryProps {
@@ -20,10 +20,12 @@ export function ProjectGallery({ projects }: ProjectGalleryProps) {
             </div>
             {projects.map((project) => {
                 return (
-                    <Thumbnail
+                    <ThumbnailThree
                         key={project.id}
                         className={styles.card}
                         image={project.thumb}
+                        imageDepth={project.thumbDepth}
+                        foreground={project.foreground}
                         title={project.title}
                         href={`/projects/${project.id}`}
                     />
