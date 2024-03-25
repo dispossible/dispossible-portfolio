@@ -14,9 +14,18 @@ interface ThumbnailProps {
     foreground?: StaticImageData;
     title: string;
     href: string;
+    depth?: number;
 }
 
-export default function Thumbnail({ className, href, image, imageDepth, title, foreground }: ThumbnailProps) {
+export default function Thumbnail({
+    className,
+    href,
+    image,
+    imageDepth,
+    title,
+    foreground,
+    depth = 0.8,
+}: ThumbnailProps) {
     const [isClient, setClient] = useState(false);
     useEffect(() => {
         setClient(true);
@@ -42,7 +51,7 @@ export default function Thumbnail({ className, href, image, imageDepth, title, f
             () =>
                 requestIdleCallback(async () => {
                     const meshScaler = 2;
-                    const depthMultiplier = 0.8;
+                    const depthMultiplier = depth;
 
                     const [imageEl, imageDepthEl] = await Promise.all([
                         loadImage(image?.src),
@@ -100,7 +109,7 @@ export default function Thumbnail({ className, href, image, imageDepth, title, f
             1500
         );
         return () => clearTimeout(to);
-    }, [image, imageDepth, scene, renderer]);
+    }, [image, imageDepth, scene, renderer, depth]);
 
     const render = useCallback(() => {
         if (renderer) {

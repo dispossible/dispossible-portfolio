@@ -22,6 +22,7 @@ export const projectData: ProjectPostMeta = {
     thumb,
     thumbDepth,
     foreground,
+    depth: 1,
 };
 
 export default function Component() {

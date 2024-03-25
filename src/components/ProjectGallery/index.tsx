@@ -27,6 +27,7 @@ export function ProjectGallery({ projects }: ProjectGalleryProps) {
                         imageDepth={project.thumbDepth}
                         foreground={project.foreground}
                         title={project.title}
+                        depth={project.depth}
                         href={`/projects/${project.id}`}
                     />
                 );
