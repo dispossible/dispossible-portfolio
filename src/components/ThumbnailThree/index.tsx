@@ -53,7 +53,7 @@ export default function Thumbnail({ className, href, image, imageDepth, title, f
                     const elAspectRatio = (renderer?.domElement?.width ?? 1) / (renderer?.domElement?.height ?? 1);
                     const aspectRatio = imgAspectRatio - elAspectRatio;
 
-                    const geometrySize = 2.4; // 2 is the canvas size
+                    const geometrySize = 2.5; // 2 is the canvas size
 
                     const width = Math.round(imageDepthEl.width / meshScaler);
                     const height = Math.round(imageDepthEl.height / meshScaler);
@@ -95,13 +95,6 @@ export default function Thumbnail({ className, href, image, imageDepth, title, f
                     );
                     scene.add(mesh);
 
-                    // const debugGeometry = new THREE.PlaneGeometry(geometrySize, geometrySize, 5, 5);
-                    // const debugMesh = new THREE.Mesh(
-                    //     debugGeometry,
-                    //     new THREE.MeshBasicMaterial({ wireframe: true, color: 0xff0000, opacity: 0.1 })
-                    // );
-                    // scene.add(debugMesh);
-
                     renderer?.domElement?.classList?.add(style.canvasVisible);
                 }),
             1500
@@ -111,7 +104,7 @@ export default function Thumbnail({ className, href, image, imageDepth, title, f
 
     const render = useCallback(() => {
         if (renderer) {
-            const multiplier = 0.3;
+            const multiplier = 0.25;
 
             let x = currentPos.x;
             let y = currentPos.y;
@@ -155,7 +148,7 @@ export default function Thumbnail({ className, href, image, imageDepth, title, f
     }, [renderer]);
 
     const targetPos = useRef({ x: 0.5, y: 0.5 });
-    const speed = 5; // Bigger == Slower
+    const speed = 200; // Bigger == Slower
 
     const handleMouseMove: MouseEventHandler<HTMLDivElement> = useCallback((e) => {
         if ($thumb.current) {
@@ -184,18 +177,20 @@ export default function Thumbnail({ className, href, image, imageDepth, title, f
                 return { x, y };
             }
 
+            const frameSpeed = delta / speed;
+
             const distanceX = targetPos.current.x - x;
             const distanceY = targetPos.current.y - y;
 
             if (Math.abs(distanceX) < 0.0001) {
                 x = targetPos.current.x;
             } else {
-                x += distanceX / (delta * speed);
+                x += distanceX * frameSpeed;
             }
             if (Math.abs(distanceY) < 0.0001) {
                 y = targetPos.current.y;
             } else {
-                y += distanceY / (delta * speed);
+                y += distanceY * frameSpeed;
             }
 
             return {
