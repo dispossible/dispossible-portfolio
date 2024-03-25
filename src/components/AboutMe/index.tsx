@@ -19,10 +19,10 @@ export default function AboutMe() {
                     </p>
                     <p>
                         When I&apos;m not coding, I enjoy exploring my creative side through 3D printing and model
-                        making. While at university I learnt 3D modelling and animation and I now enjoy in bringing my
-                        designs to life and experimenting with different materials to create unique objects. Apart from
-                        that, I love gaming and photography. Gaming helps me unwind and get some down time, while
-                        photography allows me to work on my creative eye with composition, lighting and colour.
+                        making. While at university I learnt 3D modelling and animation and I now enjoy bringing my
+                        designs to life. Apart from that, I love gaming and photography. Gaming helps me unwind and get
+                        some down time, while photography allows me to work on my creative eye with composition,
+                        lighting and colour.
                     </p>
                 </div>
                 <div className={styles.portrait}>
