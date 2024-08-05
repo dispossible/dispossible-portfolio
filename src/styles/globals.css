@@ -86,6 +86,8 @@ figure {
 
     & figcaption {
         font-size: 0.7em;
+        font-style: italic;
+        opacity: 0.9;
     }
 }
 

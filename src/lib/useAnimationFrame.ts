@@ -6,7 +6,8 @@ export default function useAnimationFrame(callback: (delta: number) => void) {
 
     const tick = useCallback(
         (time: number) => {
-            const delta = time - previousTimeRef.current;
+            let delta = time - previousTimeRef.current;
+            delta = Math.min(delta, 50);
             callback(delta);
             previousTimeRef.current = time;
             requestRef.current = requestAnimationFrame(tick);
