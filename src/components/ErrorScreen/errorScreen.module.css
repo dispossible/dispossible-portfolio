@@ -1,0 +1,17 @@
+.wrapper {
+    min-height: 100svh;
+    display: grid;
+    place-items: center;
+}
+
+.header {
+    text-align: center;
+    display: inline-block;
+}
+
+.title {
+    font-size: 4em;
+    padding-bottom: 24px;
+    margin: 0 0 32px;
+    border-bottom: 1px solid hsla(0deg 0% 100% / 20%);
+}
